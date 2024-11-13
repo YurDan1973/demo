@@ -15,7 +15,8 @@ public class MyController {
 // Эта аннотация над конструктором говорит о том, что если
 // нижеследующему MyController - ру понадобится объект, указанный в параметрах, т.е. Teacher teacher
 // то Spring её создат сам и подтянет её
-    public MyController( @Qualifier("laborTeacher") Teacher teacher) {
+    public MyController(@Qualifier("mathTeacher") Teacher teacher) {
+//    public MyController(Teacher teacher) {
         this.teacher = teacher;
     }
 
