@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     private Teacher teacher;
-    private Teacher secondTeacher;
+//    private Teacher secondTeacher;
 
     @Autowired
 // Эта аннотация над конструктором говорит о том, что если
 // нижеследующему MyController - ру понадобится объект, указанный в параметрах, т.е. Teacher teacher
 // то Spring её создат сам и подтянет её
-    public MyController(@Qualifier("mathTeacher") Teacher teacher,
-                        @Qualifier("mathTeacher") Teacher secondTeacher) {
+//    public MyController(@Qualifier("mathTeacher") Teacher teacher
+    public MyController(@Qualifier("englishTeacher") Teacher teacher
+// , @Qualifier("mathTeacher") Teacher secondTeacher
+    ) {
 //    public MyController(Teacher teacher) {
         System.out.println("Bean of class - " + this.getClass().getName());
         this.teacher = teacher;
-        this.secondTeacher = secondTeacher;
+//        this.secondTeacher = secondTeacher;
     }
 
 //    @Autowired
@@ -38,8 +40,8 @@ public class MyController {
         return teacher.getHomeWork();
     }
 
-    @GetMapping("/compteachers")
-    public String compareTeachers() {
-        return "Compareteachers - " + (teacher == secondTeacher);
-    }
+//    @GetMapping("/compteachers")
+//    public String compareTeachers() {
+//        return "Compareteachers - " + (teacher == secondTeacher);
+//    }
 }
